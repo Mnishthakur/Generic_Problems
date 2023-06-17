@@ -11,12 +11,27 @@ class Program
 
     static void Main()
     {
-        string a = "Heyaaaa";
+        string a = "Hey";
         string b = "Hello";
         string c = "Namaste";
 
-        string minimum = FindMinimum(a, b, c);
+        string minimumstring = FindMinimum(a, b, c);
+        Console.WriteLine("The minimum value is: " + minimumstring);
 
-        Console.WriteLine("The minimum value is: " + minimum);
+        float f1 = 2.6f;
+        float f2 = 5.8f;
+        float f3 = 9.7f;
+
+        float minimumfloat = FindMinimum(f1, f2, f3);
+
+        Console.WriteLine("The minimum value is: " + minimumfloat);
+
+        int num1 = 10;
+        int num2 = 5;
+        int num3 = 8;
+
+        int minimumnumber = FindMinimum(num1, num2, num3);
+
+        Console.WriteLine("The minimum value is: " + minimumnumber);
     }
 }
