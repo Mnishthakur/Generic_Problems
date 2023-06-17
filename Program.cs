@@ -1,9 +1,9 @@
 using System;
 namespace ProblemsInGenerics;
 
-class DeleteArray
+class DeleteArray<T>
 {
-    public static void DeleteMethod<T>(ref T[] array, T element)
+    public void DeleteMethod(ref T[] array, T element)
     {
         int index = Array.IndexOf(array, element);
         if (index != -1)
@@ -30,9 +30,14 @@ class Program
         Console.WriteLine("Doubles: " + string.Join(", ", doubleArray));
         Console.WriteLine("Characters: " + string.Join(", ", charArray));
 
-        DeleteArray.DeleteMethod(ref intArray, 3);
-        DeleteArray.DeleteMethod(ref doubleArray, 2.2);
-        DeleteArray.DeleteMethod(ref charArray, 'd');
+        DeleteArray<int> intDeleteArray = new DeleteArray<int>();
+        intDeleteArray.DeleteMethod(ref intArray, 3);
+
+        DeleteArray<double> doubleDeleteArray = new DeleteArray<double>();
+        doubleDeleteArray.DeleteMethod(ref doubleArray, 2.2);
+
+        DeleteArray<char> charDeleteArray = new DeleteArray<char>();
+        charDeleteArray.DeleteMethod(ref charArray, 'd');
 
         Console.WriteLine("\nArrays after deletion:");
         Console.WriteLine("Integers: " + string.Join(", ", intArray));
