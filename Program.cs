@@ -12,11 +12,11 @@ class Program
 
     static void Main()
     {
-        int num1 = 10;
-        int num2 = 5;
-        int num3 = 8;
+        float f1 = 2.6f;
+        float f2 = 5.8f;
+        float f3 = 9.7f;
 
-        int minimum = FindMinimum(num1, num2, num3);
+        float minimum = FindMinimum(f1, f2, f3);
 
         Console.WriteLine("The minimum value is: " + minimum);
     }
