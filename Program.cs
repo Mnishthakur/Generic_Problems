@@ -3,15 +3,42 @@ namespace ProblemsInGenerics;
 
 class DeleteArray
 {
-    public static void DeleteMethod<T>(ref T[] array, T element)
+    public static void DeleteMethod(ref int[] array, int element)
     {
         int index = Array.IndexOf(array, element);
         if (index != -1)
         {
-            T[] newArray = new T[array.Length - 1];
-            Array.Copy(array, 0, newArray, 0, index);
-            Array.Copy(array, index + 1, newArray, index, array.Length - index - 1);
-            array = newArray;
+            for (int i = index; i < array.Length - 1; i++)
+            {
+                array[i] = array[i + 1];
+            }
+            Array.Resize(ref array, array.Length - 1);
+        }
+    }
+
+    public static void DeleteMethod(ref double[] array, double element)
+    {
+        int index = Array.IndexOf(array, element);
+        if (index != -1)
+        {
+            for (int i = index; i < array.Length - 1; i++)
+            {
+                array[i] = array[i + 1];
+            }
+            Array.Resize(ref array, array.Length - 1);
+        }
+    }
+
+    public static void DeleteMethod(ref char[] array, char element)
+    {
+        int index = Array.IndexOf(array, element);
+        if (index != -1)
+        {
+            for (int i = index; i < array.Length - 1; i++)
+            {
+                array[i] = array[i + 1];
+            }
+            Array.Resize(ref array, array.Length - 1);
         }
     }
 }
@@ -40,4 +67,3 @@ class Program
         Console.WriteLine("Characters: " + string.Join(", ", charArray));
     }
 }
-
